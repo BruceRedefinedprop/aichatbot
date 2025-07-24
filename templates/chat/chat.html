@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+  <h2>Chat</h2>
+  <div>
+    {% for message in messages %}
+      <div>
+        <strong>{{ message.timestamp|date:'Y-m-d H:i:s' }}</strong>: {{ message.text|linebreaksbr }}
+      </div>
+    {% empty %}
+      <div>No messages yet.</div>
+    {% endfor %}
+  </div>
+  <form method="post">
+    {% csrf_token %}
+    <textarea name="text" rows="3" cols="50" placeholder="Type your message..."></textarea><br>
+    <button type="submit">Send</button>
+  </form>
+{% endblock %} 

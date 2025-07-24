@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HTChat</title>
+</head>
+<body>
+    {% if user.is_authenticated %}
+        <p>Logged in as {{ user.username }} | <a href="/accounts/logout/">Logout</a></p>
+    {% else %}
+        <p><a href="/accounts/login/">Login</a></p>
+    {% endif %}
+    <hr>
+    {% block content %}{% endblock %}
+</body>
+</html> 
